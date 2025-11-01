@@ -118,12 +118,12 @@ app.get("/api/cursos", (req, res) => {
 
 // Rota para login
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "login.html"));
+  res.sendFile(path.join(__dirname, "app", "login.html"));
 });
 
 // Rota para cadastro
 app.get("/cadastro", (req, res) => {
-  res.sendFile(path.join(__dirname, "cadastro.html"));
+  res.sendFile(path.join(__dirname, "app", "cadastro.html"));
 });
 
 // API para autenticação de usuário
@@ -148,16 +148,16 @@ app.post("/api/login", (req, res) => {
 
     switch (user.tipo) {
       case "aluno":
-        redirectUrl = "/dashboard-aluno.html";
+        redirectUrl = "/app/dashboard-aluno.html";
         break;
       case "rh":
-        redirectUrl = "/dashboard-rh.html";
+        redirectUrl = "/app/dashboard-rh.html";
         break;
       case "admin":
-        redirectUrl = "/dashboard-admin.html";
+        redirectUrl = "/app/dashboard-admin.html";
         break;
       case "instrutor":
-        redirectUrl = "/dashboard-admin.html"; // Instrutores usam o mesmo dashboard dos admins
+        redirectUrl = "/app/dashboard-admin.html"; // Instrutores usam o mesmo dashboard dos admins
         break;
       default:
         redirectUrl = "/";
@@ -223,49 +223,7 @@ app.post("/api/usuarios", (req, res) => {
   );
 });
 
-// API para listar cursos
-app.get("/api/cursos", (req, res) => {
-  const sql = "SELECT * FROM cursos";
-
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.error("Erro ao buscar cursos:", err.message);
-      return res.status(500).json({ error: "Erro ao buscar cursos." });
-    }
-
-    res.json(results);
-  });
-});
-
-// Rota para cadastrar um novo curso
-app.post('/api/cursos', (req, res) => {
-  // 1. Desestruturar o req.body com os campos corretos do formulário e do INSERT
-  const { titulo, descricao, instrutor, categoria, duracao, preco, nivel, imagem_url } = req.body;
-
-  // 2. Validar todos os campos (campos numéricos 0 são válidos, então checamos por undefined)
-  if (!titulo || !descricao || !instrutor || !categoria || duracao === undefined || preco === undefined || !nivel || !imagem_url) {
-    return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
-  }
-
-  // 3. Atualizar a query SQL com todas as colunas
-  const sql = 'INSERT INTO cursos (titulo, descricao, instrutor, categoria, duracao, preco, nivel, imagem_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-
-  // 4. Criar o array de valores na ordem correta
-  const values = [titulo, descricao, instrutor, categoria, duracao, preco, nivel, imagem_url];
-
-  // 5. Executar a query
-  db.query(sql, values, (err, result) => {
-    if (err) {
-      console.error('Erro ao cadastrar curso:', err.message);
-      return res.status(500).json({ error: 'Erro ao cadastrar curso' });
-    }
-
-    res.status(201).json({
-      id: result.insertId,
-      message: 'Curso cadastrado com sucesso'
-    });
-  });
-});
+// (Removida duplicata de GET /api/cursos e a versão de POST /api/cursos com imagem_url)
 
 // API para buscar curso por ID
 app.get("/api/cursos/:id", (req, res) => {

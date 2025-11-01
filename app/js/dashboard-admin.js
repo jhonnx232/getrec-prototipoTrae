@@ -134,7 +134,7 @@ function displayCursos(cursosFiltrados = cursos) {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${curso.id}</td>
-            <td>${curso.nome}</td>
+            <td>${curso.titulo || curso.nome || 'Sem título'}</td>
             <td>${curso.categoria || 'N/A'}</td>
             <td>${curso.duracao || 'N/A'}h</td>
             <td>${curso.nivel || 'N/A'}</td>
@@ -183,7 +183,8 @@ function setupEventListeners() {
     document.getElementById('search-cursos').addEventListener('input', function() {
         const term = this.value.toLowerCase();
         const cursosFiltrados = cursos.filter(curso => 
-            curso.nome.toLowerCase().includes(term) ||
+            (curso.titulo && curso.titulo.toLowerCase().includes(term)) ||
+            (curso.nome && curso.nome.toLowerCase().includes(term)) ||
             (curso.categoria && curso.categoria.toLowerCase().includes(term)) ||
             (curso.nivel && curso.nivel.toLowerCase().includes(term))
         );
@@ -340,7 +341,7 @@ function openCourseModal(courseId = null) {
         const curso = cursos.find(c => c.id === courseId);
         if (curso) {
             document.getElementById('courseId').value = curso.id;
-            document.getElementById('courseName').value = curso.nome;
+            document.getElementById('courseName').value = curso.titulo || curso.nome || '';
             document.getElementById('courseCategory').value = curso.categoria || '';
             document.getElementById('courseDuration').value = curso.duracao || '';
             document.getElementById('courseLevel').value = curso.nivel || '';
@@ -358,12 +359,20 @@ function closeCourseModal() {
 }
 
 async function saveCourse() {
+    const titulo = document.getElementById('courseName').value;
+    const categoria = document.getElementById('courseCategory').value;
+    const duracao = document.getElementById('courseDuration').value;
+    const nivel = document.getElementById('courseLevel').value;
+    const descricao = document.getElementById('courseDescription').value;
+
     const courseData = {
-        nome: document.getElementById('courseName').value,
-        categoria: document.getElementById('courseCategory').value,
-        duracao: document.getElementById('courseDuration').value,
-        nivel: document.getElementById('courseLevel').value,
-        descricao: document.getElementById('courseDescription').value
+        titulo,
+        descricao,
+        instrutor: (currentUser && currentUser.nome) ? currentUser.nome : 'Instrutor',
+        categoria,
+        duracao,
+        preco: 0,
+        nivel
     };
     
     const courseId = document.getElementById('courseId').value;
@@ -413,7 +422,7 @@ function deleteCourse(courseId) {
     const curso = cursos.find(c => c.id === courseId);
     if (curso) {
         showConfirmModal(
-            `Tem certeza que deseja excluir o curso "${curso.nome}"?`,
+            `Tem certeza que deseja excluir o curso "${curso.titulo || curso.nome || 'Sem título'}"?`,
             async () => {
                 try {
                     const response = await fetch(`/api/cursos/${courseId}`, {

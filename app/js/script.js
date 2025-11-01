@@ -1,32 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Alternador de tema (claro/escuro)
-    const themeToggleBtn = document.getElementById('theme-toggle-btn');
-    const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
-    
-    // Verificar se há preferência de tema salva
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.setAttribute('data-theme', 'dark');
-        if (themeIcon) {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
-    }
-    
-    // Alternar entre temas claro e escuro
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', function() {
-            if (document.body.getAttribute('data-theme') === 'dark') {
-                document.body.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                if (themeIcon) { themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon'); }
-            } else {
-                document.body.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                if (themeIcon) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
-            }
-        });
-    }
+    // Tema controlado por theme-toggle.js; removida lógica duplicada aqui.
     
     // Menu mobile
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');

@@ -46,7 +46,7 @@ $(document).ready(function () {
         );
         // Redirecionar para a página de login após 2 segundos
         setTimeout(function () {
-          window.location.href = "login.html";
+          window.location.href = "/app/login.html";
         }, 2000);
       },
       error: function (xhr) {
