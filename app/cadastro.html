@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GETREC - Cadastro</title>
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/cadastro.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -14,11 +14,11 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <script src="js/theme-toggle.js" defer></script>
+    <script src="../js/theme-toggle.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
-    <a href="index.html" class="back-to-home">
+    <a href="../index.html" class="back-to-home">
       <i class="fas fa-arrow-left"></i> Voltar para a página inicial
     </a>
 
@@ -136,76 +136,7 @@
       </div>
     </div>
 
-    <script>
-      $(document).ready(function () {
-        // Toggle password visibility
-        $(".toggle-password").on("click", function () {
-          const input = $(this).parent().find("input");
-          const type = input.attr("type") === "password" ? "text" : "password";
-          input.attr("type", type);
-          $(this).toggleClass("fa-eye fa-eye-slash");
-        });
-
-        // Formulário de cadastro
-        $("#cadastroForm").on("submit", function (e) {
-          e.preventDefault();
-
-          // Validar se as senhas coincidem
-          const senha = $("#senha").val();
-          const confirmarSenha = $("#confirmar-senha").val();
-
-          if (senha !== confirmarSenha) {
-            showMessage(
-              "As senhas não coincidem. Por favor, verifique.",
-              "error"
-            );
-            return;
-          }
-
-          // Coletar dados do formulário
-          const formData = {
-            nome: $("#nome").val(),
-            sobrenome: $("#sobrenome").val(),
-            email: $("#email").val(),
-            senha: senha,
-            tipo_usuario: $("#tipo-usuario").val(),
-            empresa: $("#empresa").val(),
-          };
-
-          // Enviar para a API
-          $.ajax({
-            url: "/api/usuarios",
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(formData),
-            success: function (response) {
-              showMessage(
-                "Cadastro realizado com sucesso! Redirecionando para o login...",
-                "success"
-              );
-              // Redirecionar para a página de login após 2 segundos
-              setTimeout(function () {
-                window.location.href = "login.html";
-              }, 2000);
-            },
-            error: function (xhr) {
-              let errorMsg = "Erro ao realizar cadastro.";
-              if (xhr.responseJSON && xhr.responseJSON.error) {
-                errorMsg = xhr.responseJSON.error;
-              }
-              showMessage(errorMsg, "error");
-            },
-          });
-        });
-
-        // Função para exibir mensagens
-        function showMessage(message, type) {
-          const messageElement = $("#mensagem-cadastro");
-          messageElement.text(message);
-          messageElement.css("color", type === "success" ? "green" : "red");
-          messageElement.show();
-        }
-      });
-    </script>
+    <script src="../js/script.js"></script>
+    <script src="js/cadastro.js"></script>
   </body>
 </html>

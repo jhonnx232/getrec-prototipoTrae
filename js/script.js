@@ -111,4 +111,51 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Função para carregar nome do usuário logado
+    function loadUserName() {
+        const userNameElement = document.getElementById('user-name');
+        if (!userNameElement) return;
+
+        // Tentar obter dados do localStorage
+        const userDataRaw = localStorage.getItem('userData');
+        let userData = null;
+        
+        try {
+            userData = userDataRaw ? JSON.parse(userDataRaw) : null;
+        } catch (e) {
+            console.error('Erro ao parsear userData do localStorage:', e);
+        }
+
+        // Se temos dados do usuário no localStorage, usar o nome como fallback
+        if (userData && userData.nome) {
+            userNameElement.textContent = userData.nome;
+        }
+
+        // Se temos ID do usuário, buscar dados atualizados da API
+        if (userData && userData.id) {
+            fetch(`/api/usuario/${userData.id}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data && data.nome) {
+                        userNameElement.textContent = data.nome;
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados do usuário:', error);
+                    // Manter o nome do localStorage se a API falhar
+                });
+        }
+    }
+
+    // Carregar nome do usuário quando a página carregar
+    loadUserName();
+
+    // Expor função globalmente para uso em outras páginas
+    window.loadUserName = loadUserName;
 });
