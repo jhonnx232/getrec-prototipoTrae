@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GETREC - Treinamentos que transformam, resultados que impressionam</title>
+    <link rel="stylesheet" href="css/common.css">
+     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="js/theme-toggle.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>GETREC</h1>
+            </div>
+            <div class="search-container">
+                <form class="search-form" role="search">
+                    <label for="search-input" class="visually-hidden">Buscar cursos, habilidades...</label>
+                    <input type="text" id="search-input" placeholder="Buscar cursos, habilidades..." class="search-input">
+                    <button type="submit" class="search-button" aria-label="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <nav class="main-nav">
+                <button class="mobile-menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav-links">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="main-nav-links">
+                    <li><a href="#inicio" class="active">Início</a></li>
+                    <li><a href="#funcionalidades">Funcionalidades</a></li>
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="login.html" class="btn-login">Login</a></li>
+                    <li><a href="cadastro.html" class="btn-signup">Cadastre-se</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn" aria-label="Alternar tema">
+                    <i class="fas fa-moon theme-toggle-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h2>Treinamentos que transformam, resultados que impressionam.</h2>
+                    <p>Automatize e simplifique a gestão de treinamentos corporativos com a plataforma mais intuitiva do mercado.</p>
+                    <div class="hero-buttons">
+                        <a href="#planos" class="btn btn-primary">Ver Planos</a>
+                        <a href="cadastro.html" class="btn btn-secondary">Comece agora</a>
+                    </div>
+                </div>
+                <img src="img/hero-image.jpg" alt="Plataforma GETREC em uso em um notebook" class="hero-image">
+            </div>
+        </section>
+
+        <section id="missao-visao" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nossa Missão e Visão</h2>
+                </div>
+                <div class="mission-vision-cards">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Missão</h3>
+                        <p>Automatizar e simplificar a gestão de treinamentos corporativos, proporcionando uma experiência intuitiva e eficiente.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Visão</h3>
+                        <p>Ser reconhecida como a plataforma mais intuitiva do mercado, transformando a maneira como as empresas capacitam seus colaboradores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publico-alvo" class="section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Para Quem é a GETREC?</h2>
+                </div>
+                <div class="target-audience">
+                    <div class="audience-group">
+                        <h3>Profissionais</h3>
+                        <ul>
+                            <li><i class="fas fa-user-tie"></i> Gestores de RH</li>
+                            <li><i class="fas fa-users"></i> Consultorias</li>
+                            <li><i class="fas fa-user-friends"></i> Líderes de equipe</li>
+                            <li><i class="fas fa-user"></i> Colaboradores</li>
+                        </ul>
+                    </div>
+                    <div class="audience-group">
+                        <h3>Setores</h3>
+                        <ul>
+                            <li><i class="fas fa-industry"></i> Indústria</li>
+                            <li><i class="fas fa-store"></i> Varejo</li>
+                            <li><i class="fas fa-briefcase"></i> Serviços</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="funcionalidades" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Funcionalidades Principais</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Catálogo de cursos</h3>
+                        <p>Acesse uma ampla variedade de cursos organizados por categorias e níveis de dificuldade.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <h3>Trilhas de aprendizagem</h3>
+                        <p>Percursos formativos personalizados para desenvolvimento de competências específicas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Videoaulas</h3>
+                        <p>Conteúdo disponível em formato de vídeo, com aulas ao vivo e gravadas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Exercícios e quizzes</h3>
+                        <p>Atividades práticas para fixação do conteúdo e avaliação do aprendizado.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Certificação digital</h3>
+                        <p>Emissão automática de certificados após a conclusão dos cursos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3>Modo offline</h3>
+                        <p>Acesse o conteúdo mesmo sem conexão com a internet.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Gamificação</h3>
+                        <p>Sistema de pontos, conquistas e rankings para engajar os usuários.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>Suporte via WhatsApp</h3>
+                        <p>Atendimento rápido e eficiente através do aplicativo de mensagens.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diferenciais" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Diferenciais para o Interior da Bahia</h2>
+                    <p>Soluções adaptadas à realidade e necessidades locais</p>
+                </div>
+                <div class="differentials-grid">
+                    <div class="differential-card">
+                        <div class="differential-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Cursos Contextualizados</h3>
+                        <p>Conteúdos específicos para agricultura familiar, cooperativismo e formação de influenciadores digitais locais.</p>
+                    </div>
+                    <div class="differential-card">
+                        <div class="differential-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Apoio Comunitário</h3>
+                        <p>Parcerias com sindicatos, associações e prefeituras para ampliar o acesso à capacitação profissional.</p>
+                    </div>
+                    <div class="differential-card">
+                        <div class="differential-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Eventos Híbridos</h3>
+                        <p>Oficinas presenciais e eventos que combinam o digital com encontros físicos nas comunidades.</p>
+                    </div>
+                    <div class="differential-card">
+                        <div class="differential-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Interface Baiana</h3>
+                        <p>Design inspirado na cultura baiana, com elementos visuais que valorizam a identidade local.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planos" class="section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Planos e Pagamentos</h2>
+                </div>
+                <div class="plans-container">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Gratuito</h3>
+                            <p class="plan-price">R$ 0</p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Acesso a cursos básicos</li>
+                                <li><i class="fas fa-check"></i> Certificados digitais</li>
+                                <li><i class="fas fa-check"></i> Suporte via e-mail</li>
+                                <li class="disabled"><i class="fas fa-times"></i> Trilhas de aprendizagem</li>
+                                <li class="disabled"><i class="fas fa-times"></i> Modo offline</li>
+                                <li class="disabled"><i class="fas fa-times"></i> Suporte via WhatsApp</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <a href="cadastro.html" class="btn btn-outline">Começar agora</a>
+                        </div>
+                    </div>
+                    <div class="plan-card featured">
+                        <div class="plan-badge">Mais popular</div>
+                        <div class="plan-header">
+                            <h3>Assinatura</h3>
+                            <p class="plan-price">R$ 49,90<span>/mês</span></p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Acesso a todos os cursos</li>
+                                <li><i class="fas fa-check"></i> Trilhas de aprendizagem</li>
+                                <li><i class="fas fa-check"></i> Certificados digitais</li>
+                                <li><i class="fas fa-check"></i> Modo offline</li>
+                                <li><i class="fas fa-check"></i> Suporte via WhatsApp</li>
+                                <li><i class="fas fa-check"></i> Gamificação</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <a href="cadastro.html" class="btn btn-primary">Assinar agora</a>
+                        </div>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Avulso</h3>
+                            <p class="plan-price">A partir de R$ 29,90</p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Acesso a curso individual</li>
+                                <li><i class="fas fa-check"></i> Certificado digital</li>
+                                <li><i class="fas fa-check"></i> Modo offline</li>
+                                <li><i class="fas fa-check"></i> Suporte via e-mail</li>
+                                <li class="disabled"><i class="fas fa-times"></i> Trilhas de aprendizagem</li>
+                                <li class="disabled"><i class="fas fa-times"></i> Suporte via WhatsApp</li>
+                            </ul>
+                        </div>
+                        <div class="plan-footer">
+                            <a href="cursos.html" class="btn btn-outline">Ver cursos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="payment-methods">
+                    <h3>Formas de Pagamento</h3>
+                    <div class="payment-icons">
+                        <i class="fas fa-qrcode" title="Pix"></i>
+                        <i class="fas fa-file-invoice" title="Boleto"></i>
+                        <i class="fas fa-credit-card" title="Cartão de crédito"></i>
+                        <i class="fas fa-money-check" title="Cartão de débito"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Depoimentos</h2>
+                </div>
+                <div class="testimonials-slider">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"A GETREC transformou a maneira como gerenciamos os treinamentos em nossa empresa. A plataforma é intuitiva e os resultados são impressionantes."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="img/avatar-1.svg" alt="Foto de Maria Silva">
+                            <div>
+                                <h4>Maria Silva</h4>
+                                <p>Gestora de RH - Indústria ABC</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Os cursos contextualizados para a realidade do interior da Bahia fizeram toda a diferença para nossa cooperativa. Recomendo a todos!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="img/avatar-2.svg" alt="Foto de João Santos">
+                            <div>
+                                <h4>João Santos</h4>
+                                <p>Presidente - Cooperativa Rural</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Como instrutor, encontrei na GETREC todas as ferramentas necessárias para criar e gerenciar meus cursos de forma eficiente."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="img/avatar-3.svg" alt="Foto de Ana Oliveira">
+                            <div>
+                                <h4>Ana Oliveira</h4>
+                                <p>Consultora de Treinamentos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="prev-btn" aria-label="Depoimento anterior"><i class="fas fa-chevron-left"></i></button>
+                    <div class="testimonial-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="next-btn" aria-label="Próximo depoimento"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Entre em Contato</h2>
+                </div>
+                <div class="contact-container">
+                    <ul class="contact-info">
+                        <li class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Av. Principal, 123 - Centro<br>Salvador, BA - CEP 40000-000</p>
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p>(71) 3333-4444</p>
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>contato@getrec.com.br</p>
+                        </li>
+                        <li class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <p>(71) 99999-8888</p>
+                        </li>
+                        <li class="contact-item">
+                            <div class="social-media">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Assunto</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="img/logo-getrec-white.svg" alt="GETREC Logo" class="footer-logo-img">
+                        <h2>GETREC</h2>
+                    </div>
+                    <p>Treinamentos que transformam, resultados que impressionam.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#funcionalidades">Funcionalidades</a></li>
+                        <li><a href="#planos">Planos</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Suporte</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Tutoriais</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Salvador, BA - Brasil</li>
+                        <li><i class="fas fa-phone"></i> (71) 9999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@getrec.com.br</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 GETREC. Todos os direitos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

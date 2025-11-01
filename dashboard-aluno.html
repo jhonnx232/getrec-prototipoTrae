@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Aluno - GETREC</title>
+    <link rel="stylesheet" href="css/common.css">
+     <link rel="stylesheet" href="css/aluno.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="js/theme-toggle.js" defer></script>
+    <style>
+        /* Estilos específicos para o dashboard */
+        .dashboard {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: var(--primary-color);
+            color: var(--text-color-inverse);
+            padding: 20px 0;
+            transition: var(--transition);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+        
+        .sidebar-header {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 24px;
+            margin: 0;
+        }
+        
+        .sidebar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color-inverse);
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .user-info {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .user-details h3 {
+            font-size: 16px;
+            margin: 0 0 5px;
+        }
+        
+        .user-details p {
+            font-size: 14px;
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        #user-name {
+            font-weight: 600;
+        }
+        
+        .sidebar-menu {
+            padding: 20px 0;
+        }
+        
+        .menu-category {
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            opacity: 0.7;
+            margin-top: 10px;
+        }
+        
+        .sidebar-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-menu ul li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: var(--text-color-inverse);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .sidebar-menu ul li a:hover,
+        .sidebar-menu ul li a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-menu ul li a i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Conteúdo principal */
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 20px;
+            transition: var(--transition);
+            background-color: var(--bg-color-light);
+        }
+        
+        /* Header do conteúdo */
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .content-header h1 {
+            font-size: 24px;
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .header-actions button {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .header-actions button:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Cards de estatísticas */
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background-color: rgba(77, 143, 218, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .stat-info h3 {
+            font-size: 14px;
+            color: var(--text-color-light);
+            margin: 0 0 5px;
+        }
+        
+        .stat-info p {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        /* Seção de cursos */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title h2 {
+            font-size: 20px;
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .section-title a {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .course-card {
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-image {
+            height: 160px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .course-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        .course-content {
+            padding: 20px;
+        }
+        
+        .course-category {
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: rgba(77, 143, 218, 0.1);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .course-title {
+            font-size: 18px;
+            margin: 0 0 10px;
+            color: var(--text-color);
+        }
+        
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--text-color-light);
+        }
+        
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .course-footer .progress-text {
+            font-size: 14px;
+            color: var(--text-color-light);
+        }
+        
+        .course-footer .btn-continue {
+            padding: 5px 15px;
+            background-color: var(--primary-color);
+            color: var(--text-color-inverse);
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .course-footer .btn-continue:hover {
+            background-color: var(--primary-color-dark);
+        }
+        
+        /* Próximas aulas */
+        .upcoming-classes {
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .class-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .class-item:last-child {
+            border-bottom: none;
+        }
+        
+        .class-time {
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .class-time .date {
+            font-size: 14px;
+            color: var(--text-color-light);
+            margin-bottom: 5px;
+        }
+        
+        .class-time .time {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .class-info {
+            flex: 1;
+        }
+        
+        .class-info h3 {
+            font-size: 16px;
+            margin: 0 0 5px;
+            color: var(--text-color);
+        }
+        
+        .class-info p {
+            font-size: 14px;
+            color: var(--text-color-light);
+            margin: 0;
+        }
+        
+        .class-actions .btn-join {
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: var(--text-color-inverse);
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .class-actions .btn-join:hover {
+            background-color: var(--primary-color-dark);
+        }
+        
+        /* Certificados */
+        .certificates-list {
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+        }
+        
+        .certificate-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .certificate-item:last-child {
+            border-bottom: none;
+        }
+        
+        .certificate-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background-color: rgba(77, 143, 218, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+        
+        .certificate-info {
+            flex: 1;
+        }
+        
+        .certificate-info h3 {
+            font-size: 16px;
+            margin: 0 0 5px;
+            color: var(--text-color);
+        }
+        
+        .certificate-info p {
+            font-size: 14px;
+            color: var(--text-color-light);
+            margin: 0;
+        }
+        
+        .certificate-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .certificate-actions button {
+            padding: 8px;
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .certificate-actions button:hover {
+            background-color: var(--bg-color-light);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 70px;
+                padding: 20px 0;
+            }
+            
+            .sidebar-header h2,
+            .user-details,
+            .menu-category,
+            .sidebar-menu ul li a span {
+                display: none;
+            }
+            
+            .sidebar-menu ul li a {
+                justify-content: center;
+                padding: 15px 0;
+            }
+            
+            .sidebar-menu ul li a i {
+                font-size: 20px;
+                width: auto;
+            }
+            
+            .main-content {
+                margin-left: 70px;
+            }
+            
+            .sidebar-toggle {
+                display: block;
+            }
+            
+            .user-info {
+                justify-content: center;
+                padding: 15px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 0;
+                padding: 0;
+            }
+            
+            .sidebar.active {
+                width: 250px;
+                padding: 20px 0;
+            }
+            
+            .sidebar.active .sidebar-header h2,
+            .sidebar.active .user-details,
+            .sidebar.active .menu-category,
+            .sidebar.active .sidebar-menu ul li a span {
+                display: block;
+            }
+            
+            .sidebar.active .sidebar-menu ul li a {
+                justify-content: flex-start;
+                padding: 12px 20px;
+            }
+            
+            .sidebar.active .user-info {
+                justify-content: flex-start;
+                padding: 20px;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .mobile-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+                background-color: var(--bg-color);
+                box-shadow: var(--box-shadow);
+                position: sticky;
+                top: 0;
+                z-index: 99;
+            }
+            
+            .mobile-header h2 {
+                font-size: 20px;
+                margin: 0;
+                color: var(--primary-color);
+            }
+            
+            .mobile-toggle {
+                background: none;
+                border: none;
+                color: var(--text-color);
+                font-size: 20px;
+                cursor: pointer;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-header {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header mobile -->
+    <div class="mobile-header">
+        <button class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <h2>GETREC</h2>
+        <div class="theme-toggle">
+            <button id="theme-toggle-btn-mobile" aria-label="Alternar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>GETREC</h2>
+                <button class="sidebar-toggle">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">
+                    <span>JD</span>
+                </div>
+                <div class="user-details">
+                    <h3 id="user-name">João da Silva</h3>
+                    <p>Aluno</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <div class="menu-category">Menu</div>
+                <ul>
+                    <li>
+                        <a href="#" class="active">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-book"></i>
+                            <span>Meus Cursos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Agenda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certificados</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-category">Recursos</div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-download"></i>
+                            <span>Downloads</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-trophy"></i>
+                            <span>Conquistas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-comments"></i>
+                            <span>Fórum</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-category">Configurações</div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Perfil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span>Configurações</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-headset"></i>
+                            <span>Suporte</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Dashboard</h1>
+                <div class="header-actions">
+                    <button aria-label="Notificações">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                    <button aria-label="Mensagens">
+                        <i class="fas fa-envelope"></i>
+                    </button>
+                    <div class="theme-toggle">
+                        <button id="theme-toggle-btn" aria-label="Alternar tema">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cards de estatísticas -->
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Cursos em andamento</h3>
+                        <p>4</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Cursos concluídos</h3>
+                        <p>6</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Horas de estudo</h3>
+                        <p>42h</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Conquistas</h3>
+                        <p>12</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cursos em andamento -->
+            <div class="section-title">
+                <h2>Cursos em andamento</h2>
+                <a href="#">Ver todos</a>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="img/curso-1.svg" alt="Curso de Excel Avançado">
+                        <div class="course-progress">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Tecnologia</span>
+                        <h3 class="course-title">Excel Avançado para Gestores</h3>
+                        <div class="course-info">
+                            <span><i class="fas fa-clock"></i> 12 horas</span>
+                            <span><i class="fas fa-film"></i> 24 aulas</span>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <span class="progress-text">75% concluído</span>
+                        <button class="btn-continue">Continuar</button>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="img/curso-2.svg" alt="Liderança e Gestão de Equipes">
+                        <div class="course-progress">
+                            <div class="progress-bar" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Liderança</span>
+                        <h3 class="course-title">Liderança e Gestão de Equipes</h3>
+                        <div class="course-info">
+                            <span><i class="fas fa-clock"></i> 20 horas</span>
+                            <span><i class="fas fa-film"></i> 32 aulas</span>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <span class="progress-text">45% concluído</span>
+                        <button class="btn-continue">Continuar</button>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="img/curso-3.svg" alt="Marketing Digital">
+                        <div class="course-progress">
+                            <div class="progress-bar" style="width: 30%;"></div>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Marketing</span>
+                        <h3 class="course-title">Marketing Digital para Pequenos Negócios</h3>
+                        <div class="course-info">
+                            <span><i class="fas fa-clock"></i> 15 horas</span>
+                            <span><i class="fas fa-film"></i> 28 aulas</span>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <span class="progress-text">30% concluído</span>
+                        <button class="btn-continue">Continuar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Próximas aulas -->
+            <div class="section-title">
+                <h2>Próximas aulas ao vivo</h2>
+                <a href="#">Ver agenda completa</a>
+            </div>
+            
+            <div class="upcoming-classes">
+                <div class="class-item">
+                    <div class="class-time">
+                        <div class="date">Hoje</div>
+                        <div class="time">14:00</div>
+                    </div>
+                    <div class="class-info">
+                        <h3>Análise de Dados com Power BI</h3>
+                        <p>Instrutor: Carlos Mendes</p>
+                    </div>
+                    <div class="class-actions">
+                        <button class="btn-join">Entrar na aula</button>
+                    </div>
+                </div>
+                
+                <div class="class-item">
+                    <div class="class-time">
+                        <div class="date">Amanhã</div>
+                        <div class="time">10:30</div>
+                    </div>
+                    <div class="class-info">
+                        <h3>Técnicas de Apresentação Eficaz</h3>
+                        <p>Instrutora: Ana Paula Silva</p>
+                    </div>
+                    <div class="class-actions">
+                        <button class="btn-join" disabled>Agendar lembrete</button>
+                    </div>
+                </div>
+                
+                <div class="class-item">
+                    <div class="class-time">
+                        <div class="date">Sex, 15/10</div>
+                        <div class="time">16:00</div>
+                    </div>
+                    <div class="class-info">
+                        <h3>Gestão de Projetos Ágeis</h3>
+                        <p>Instrutor: Roberto Almeida</p>
+                    </div>
+                    <div class="class-actions">
+                        <button class="btn-join" disabled>Agendar lembrete</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certificados -->
+            <div class="section-title">
+                <h2>Meus certificados</h2>
+                <a href="#">Ver todos</a>
+            </div>
+            
+            <div class="certificates-list">
+                <div class="certificate-item">
+                    <div class="certificate-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Fundamentos de Marketing Digital</h3>
+                        <p>Concluído em 10/08/2023 • 20 horas</p>
+                    </div>
+                    <div class="certificate-actions">
+                        <button><i class="fas fa-download"></i> Baixar</button>
+                        <button><i class="fas fa-share-alt"></i> Compartilhar</button>
+                    </div>
+                </div>
+                
+                <div class="certificate-item">
+                    <div class="certificate-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Excel Básico e Intermediário</h3>
+                        <p>Concluído em 25/06/2023 • 15 horas</p>
+                    </div>
+                    <div class="certificate-actions">
+                        <button><i class="fas fa-download"></i> Baixar</button>
+                        <button><i class="fas fa-share-alt"></i> Compartilhar</button>
+                    </div>
+                </div>
+                
+                <div class="certificate-item">
+                    <div class="certificate-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Comunicação Eficaz no Ambiente de Trabalho</h3>
+                        <p>Concluído em 15/05/2023 • 10 horas</p>
+                    </div>
+                    <div class="certificate-actions">
+                        <button><i class="fas fa-download"></i> Baixar</button>
+                        <button><i class="fas fa-share-alt"></i> Compartilhar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // Exibir o nome do usuário logado
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            if (userData && userData.id) {
+                // Buscar dados atualizados do usuário diretamente do banco
+                fetch(`/api/usuario/${userData.id}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('user-name').textContent = data.nome;
+                    })
+                    .catch(error => {
+                        console.error('Erro ao buscar dados do usuário:', error);
+                        // Fallback para dados do localStorage se a API falhar
+                        if (userData.nome) {
+                            document.getElementById('user-name').textContent = userData.nome;
+                        }
+                    });
+             }
+        });
+        
+        // Funções para carregar dados de cursos
+        async function carregarDadosCursos() {
+            try {
+                const response = await fetch('data/cursos.json');
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar dados de cursos');
+                }
+                const dados = await response.json();
+                return dados;
+            } catch (error) {
+                console.error('Erro ao carregar cursos:', error);
+                return [];
+            }
+        }
+        
+        // Função para atualizar a interface com os dados dos cursos
+        async function atualizarInterfaceCursos(cursos) {
+            // Atualizar os cursos em andamento
+            const cursosContainer = document.querySelector('.courses-grid');
+            if (cursosContainer && cursos.length > 0) {
+                // Limpar o container
+                cursosContainer.innerHTML = '';
+                
+                // Adicionar os cursos
+                cursos.forEach(curso => {
+                    if (curso.status === 'ativo') {
+                        const cursoElement = document.createElement('div');
+                        cursoElement.className = 'course-card';
+                        cursoElement.innerHTML = `
+                            <div class="course-image" style="background-image: url('${curso.imagem}')"></div>
+                            <div class="course-content">
+                                <h3>${curso.titulo}</h3>
+                                <p class="course-category">${curso.categoria}</p>
+                                <p class="course-instructor">Instrutor: ${curso.instrutor}</p>
+                                <div class="course-progress">
+                                    <div class="progress-bar" style="width: 65%"></div>
+                                </div>
+                                <p class="progress-text">65% concluído</p>
+                                <a href="#" class="btn btn-primary">Continuar</a>
+                            </div>
+                        `;
+                        cursosContainer.appendChild(cursoElement);
+                    }
+                });
+            }
+            
+            // Atualizar estatísticas
+            const totalCursos = cursos.length;
+            const cursosConcluidos = cursos.filter(curso => curso.status === 'concluido').length;
+            const cursosEmAndamento = cursos.filter(curso => curso.status === 'ativo').length;
+            
+            const statsCursos = document.getElementById('stats-cursos');
+            const statsConcluidos = document.getElementById('stats-concluidos');
+            const statsEmAndamento = document.getElementById('stats-em-andamento');
+            
+            if (statsCursos) statsCursos.textContent = totalCursos;
+            if (statsConcluidos) statsConcluidos.textContent = cursosConcluidos;
+            if (statsEmAndamento) statsEmAndamento.textContent = cursosEmAndamento;
+        }
+        
+        // Inicializar dados ao carregar a página
+        async function inicializarDados() {
+            const cursos = await carregarDadosCursos();
+            await atualizarInterfaceCursos(cursos);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carregar dados
+            inicializarDados();
+            // Alternador de tema (claro/escuro) para o dashboard
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+            const themeIcon = themeToggleBtn.querySelector('i');
+            const themeIconMobile = themeToggleBtnMobile.querySelector('i');
+            
+            // Função para definir tema escuro
+            function setDarkTheme() {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                themeIconMobile.classList.remove('fa-moon');
+                themeIconMobile.classList.add('fa-sun');
+                
+                // Atualizar classes dos botões para o tema escuro
+                document.querySelectorAll('.btn').forEach(btn => {
+                    if (btn.classList.contains('btn-primary') || 
+                        btn.classList.contains('btn-success') || 
+                        btn.classList.contains('btn-info')) {
+                        btn.style.color = '#fff';
+                    }
+                });
+            }
+            
+            // Função para definir tema claro
+            function setLightTheme() {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                themeIconMobile.classList.remove('fa-sun');
+                themeIconMobile.classList.add('fa-moon');
+                
+                // Resetar estilos dos botões para o tema claro
+                document.querySelectorAll('.btn').forEach(btn => {
+                    if (btn.classList.contains('btn-primary') || 
+                        btn.classList.contains('btn-success') || 
+                        btn.classList.contains('btn-info')) {
+                        btn.style.color = '#fff';
+                    }
+                });
+            }
+            
+            // Verificar se há preferência de tema salva
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                setDarkTheme();
+            } else {
+                setLightTheme();
+            }
+            
+            // Alternar entre temas claro e escuro
+            function toggleTheme() {
+                if (document.body.getAttribute('data-theme') === 'dark') {
+                    setLightTheme();
+                } else {
+                    setDarkTheme();
+                }
+                
+                // Disparar evento personalizado para notificar outras páginas sobre a mudança de tema
+                const themeChangeEvent = new CustomEvent('themeChange', {
+                    detail: { theme: localStorage.getItem('theme') }
+                });
+                window.dispatchEvent(themeChangeEvent);
+            }
+            
+            themeToggleBtn.addEventListener('click', toggleTheme);
+            themeToggleBtnMobile.addEventListener('click', toggleTheme);
+            
+            // Toggle da sidebar
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+            
+            mobileToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+            
+            // Fechar sidebar ao clicar em um link (apenas em mobile)
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Ajustar sidebar ao redimensionar a janela
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <style>
+    .primary { fill: #0056b3; }
+    .secondary { fill: #ffffff; }
+    .accent { fill: #ff9800; }
+    .dark { fill: #333333; }
+    .light { fill: #f5f5f5; }
+  </style>
+  <rect width="600" height="400" fill="#f0f8ff"/>
+  
+  <!-- Pessoas -->
+  <g transform="translate(100, 100)">
+    <!-- Pessoa 1 -->
+    <circle cx="50" cy="50" r="30" class="primary"/>
+    <circle cx="50" cy="30" r="15" class="secondary"/>
+    
+    <!-- Pessoa 2 -->
+    <circle cx="150" cy="70" r="30" class="primary"/>
+    <circle cx="150" cy="50" r="15" class="secondary"/>
+    
+    <!-- Pessoa 3 -->
+    <circle cx="250" cy="60" r="30" class="primary"/>
+    <circle cx="250" cy="40" r="15" class="secondary"/>
+  </g>
+  
+  <!-- Dispositivos e elementos de aprendizagem -->
+  <g transform="translate(50, 200)">
+    <!-- Laptop -->
+    <rect x="50" y="30" width="100" height="70" rx="5" class="dark"/>
+    <rect x="55" y="35" width="90" height="55" class="light"/>
+    
+    <!-- Tablet -->
+    <rect x="200" y="40" width="60" height="80" rx="5" class="dark"/>
+    <rect x="205" y="45" width="50" height="70" class="light"/>
+    
+    <!-- Smartphone -->
+    <rect x="300" y="50" width="30" height="50" rx="5" class="dark"/>
+    <rect x="303" y="53" width="24" height="44" class="light"/>
+    
+    <!-- Certificado -->
+    <rect x="380" y="40" width="70" height="50" class="secondary" stroke="#0056b3" stroke-width="2"/>
+    <path d="M390,50 L440,50 M390,60 L430,60 M390,70 L420,70" stroke="#0056b3" stroke-width="2" fill="none"/>
+    <circle cx="415" cy="25" r="15" class="accent"/>
+  </g>
+  
+  <!-- Linhas de conexão -->
+  <g stroke="#0056b3" stroke-width="2" stroke-dasharray="5,5" fill="none">
+    <path d="M150,150 C200,100 250,200 300,150"/>
+    <path d="M200,180 C250,130 300,230 350,180"/>
+    <path d="M250,200 C300,150 350,250 400,200"/>
+  </g>
+</svg>

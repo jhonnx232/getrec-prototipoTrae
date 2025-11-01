@@ -1,0 +1,518 @@
+/* =============================================
+   Arquivo: css/index.css
+   Estilos da Página Principal (Home)
+   ============================================= */
+
+/* --- Seção Hero (#inicio) --- */
+.hero {
+    background-color: var(--bg-light);
+    padding: 80px 0;
+    color: var(--text-color);
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 550px;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    object-fit: cover;
+}
+
+/* --- Seção Missão e Visão (#missao-visao) --- */
+.mission-vision-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--bg-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.card p {
+    color: var(--text-light);
+}
+
+/* --- Seção Público-Alvo (#publico-alvo) --- */
+.target-audience {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.audience-group h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.audience-group ul li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.audience-group ul li i {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    width: 25px;
+    text-align: center;
+}
+
+/* --- Seção Funcionalidades (#funcionalidades) --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--bg-light);
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.feature-card h3 {
+    font-size: 1.3rem;
+}
+.feature-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+
+/* --- Seção Diferenciais (#diferenciais) --- */
+.differentials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.differential-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.differential-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+.differential-card h3 {
+    font-size: 1.3rem;
+}
+.differential-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* --- Seção Planos (#planos) --- */
+.plans-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: stretch; /* Faz os cards terem a mesma altura */
+}
+
+.plan-card {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.plan-card.featured {
+    border-color: var(--primary-color);
+    border-width: 2px;
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.plan-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.plan-header {
+    padding: 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+.plan-header h3 {
+    font-size: 1.6rem;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--primary-color);
+}
+.plan-price span {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.plan-features {
+    padding: 30px;
+    flex-grow: 1; /* Empurra o footer para baixo */
+}
+
+.plan-features ul li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.plan-features ul li i {
+    color: #28a745; /* Verde sucesso */
+}
+
+.plan-features ul li.disabled {
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.plan-features ul li.disabled i {
+    color: #dc3545; /* Vermelho perigo */
+}
+
+.plan-footer {
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.plan-footer .btn {
+    width: 100%;
+}
+
+.payment-methods {
+    text-align: center;
+    margin-top: 40px;
+}
+.payment-methods h3 {
+    font-size: 1.3rem;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 2.5rem;
+    color: var(--text-light);
+    margin-top: 15px;
+}
+
+.payment-icons i {
+    transition: color 0.3s;
+}
+.payment-icons i:hover {
+    color: var(--text-color);
+}
+
+
+/* --- Seção Depoimentos (#depoimentos) --- */
+/* (Estilizado como grid. JS seria necessário para um slider funcional) */
+.testimonials-slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    background: var(--bg-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-content p {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.testimonial-content p::before {
+    content: '“';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.testimonial-author h4 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.testimonial-author p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.testimonial-controls {
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.prev-btn, .next-btn {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all 0.3s;
+}
+.prev-btn:hover, .next-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.testimonial-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active, .dot:hover {
+    background: var(--primary-color);
+}
+
+/* --- Seção Contato (#contato) --- */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    background: var(--bg-light);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.contact-info .contact-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.contact-info .contact-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+    width: 30px;
+    text-align: center;
+}
+
+.contact-info .contact-item p {
+    margin: 0;
+    line-height: 1.5;
+    color: var(--text-light);
+}
+
+.contact-info .social-media {
+    display: flex;
+    gap: 15px;
+}
+
+.contact-info .social-media a {
+    font-size: 1.8rem;
+    color: var(--text-light);
+}
+.contact-info .social-media a:hover {
+    color: var(--primary-color);
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-color); /* Diferente do container */
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+
+/* ==================
+   RESPONSIVIDADE (SEÇÕES)
+   ================== */
+
+@media (max-width: 992px) {
+    .plans-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .plan-card.featured {
+        transform: scale(1);
+        grid-row: 1 / 2;
+        grid-column: 1 / 3;
+    }
+    .testimonials-slider {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column-reverse; /* Imagem primeiro no mobile */
+        text-align: center;
+    }
+    .hero-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+}

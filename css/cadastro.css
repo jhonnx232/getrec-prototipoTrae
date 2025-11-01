@@ -1,0 +1,172 @@
+/* =============================================
+   Arquivo: css/cadastro.css
+   Estilos da Página de Cadastro
+   ============================================= */
+
+.cadastro-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cadastro-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid var(--card-border);
+}
+
+.cadastro-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.cadastro-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+.cadastro-form .form-group {
+    margin-bottom: 20px;
+}
+
+.cadastro-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.cadastro-form .form-group input,
+.cadastro-form .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.cadastro-form .form-group input:focus,
+.cadastro-form .form-group select:focus {
+    outline: none;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.1);
+}
+
+.cadastro-form .form-group input::placeholder {
+    color: var(--text-muted);
+}
+
+.cadastro-form .form-group select option {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.form-inline {
+    display: flex;
+    gap: 15px;
+}
+
+.form-inline .form-group {
+    flex: 1;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+.cadastro-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.cadastro-footer p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+.cadastro-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cadastro-footer a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Mensagens de feedback */
+.message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.message.success {
+    background-color: var(--success-bg);
+    color: var(--success-color);
+    border: 1px solid var(--success-border);
+}
+
+.message.error {
+    background-color: var(--error-bg);
+    color: var(--error-color);
+    border: 1px solid var(--error-border);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-inline {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .cadastro-card {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    .cadastro-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cadastro-card {
+        padding: 25px 15px;
+    }
+}

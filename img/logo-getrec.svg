@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <style>
+    .logo-text { font-family: Arial, sans-serif; font-weight: bold; }
+    .primary { fill: #0056b3; }
+    .accent { fill: #ff9800; }
+  </style>
+  <g>
+    <path class="primary" d="M30,10 C18.95,10 10,18.95 10,30 C10,41.05 18.95,50 30,50 C41.05,50 50,41.05 50,30 C50,18.95 41.05,10 30,10 Z M30,45 C21.72,45 15,38.28 15,30 C15,21.72 21.72,15 30,15 C38.28,15 45,21.72 45,30 C45,38.28 38.28,45 30,45 Z"/>
+    <path class="accent" d="M30,20 C24.48,20 20,24.48 20,30 C20,35.52 24.48,40 30,40 C35.52,40 40,35.52 40,30 C40,24.48 35.52,20 30,20 Z"/>
+    <text x="60" y="35" class="logo-text primary" font-size="24">GETREC</text>
+  </g>
+</svg>

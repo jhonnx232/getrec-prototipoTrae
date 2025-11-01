@@ -1,0 +1,69 @@
+{
+  "cursos": [
+    {
+      "id": 1,
+      "titulo": "Gestão de Projetos Avançada",
+      "categoria": "Gestão",
+      "descricao": "Aprenda técnicas avançadas de gestão de projetos com metodologias ágeis e tradicionais.",
+      "instrutor": "Maria Silva",
+      "duracao": "40 horas",
+      "preco": 550.00,
+      "imagem": "img/curso-gestao.jpg",
+      "status": "ativo",
+      "alunos": 128,
+      "avaliacao": 4.8
+    },
+    {
+      "id": 2,
+      "titulo": "Excel para Análise de Dados",
+      "categoria": "TI",
+      "descricao": "Domine as ferramentas de análise de dados do Excel para tomada de decisões empresariais.",
+      "instrutor": "Carlos Pereira",
+      "duracao": "30 horas",
+      "preco": 450.00,
+      "imagem": "img/curso-excel.jpg",
+      "status": "ativo",
+      "alunos": 215,
+      "avaliacao": 4.7
+    },
+    {
+      "id": 3,
+      "titulo": "Liderança Estratégica",
+      "categoria": "Liderança",
+      "descricao": "Desenvolva habilidades de liderança para conduzir equipes de alto desempenho.",
+      "instrutor": "Roberto Mendes",
+      "duracao": "45 horas",
+      "preco": 650.00,
+      "imagem": "img/curso-lideranca.jpg",
+      "status": "ativo",
+      "alunos": 98,
+      "avaliacao": 4.9
+    },
+    {
+      "id": 4,
+      "titulo": "Marketing Digital",
+      "categoria": "Marketing",
+      "descricao": "Estratégias e ferramentas para marketing digital eficiente nas redes sociais e web.",
+      "instrutor": "Ana Oliveira",
+      "duracao": "35 horas",
+      "preco": 550.00,
+      "imagem": "img/curso-marketing.jpg",
+      "status": "rascunho",
+      "alunos": 0,
+      "avaliacao": 0
+    },
+    {
+      "id": 5,
+      "titulo": "Programação em Python",
+      "categoria": "TI",
+      "descricao": "Aprenda a programar em Python desde o básico até aplicações avançadas.",
+      "instrutor": "Carlos Pereira",
+      "duracao": "60 horas",
+      "preco": 750.00,
+      "imagem": "img/curso-python.jpg",
+      "status": "ativo",
+      "alunos": 156,
+      "avaliacao": 4.6
+    }
+  ]
+}

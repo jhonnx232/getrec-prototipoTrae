@@ -1,0 +1,283 @@
+/* =============================================
+   Arquivo: css/aluno.css
+   Estilos do Dashboard do Aluno
+   ============================================= */
+
+/* Header do Dashboard */
+.dashboard-header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.dashboard-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-header h1 {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.dashboard-header .user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dashboard-header .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+/* Mensagem de Boas-vindas */
+.welcome-message {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.welcome-message h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.welcome-message p {
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+/* Grid de Cursos */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* Cards de Curso */
+.course-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.course-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.course-card h3 {
+    color: var(--text-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.course-card .course-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.course-card .course-meta .duration {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.course-card .course-meta .level {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Barra de Progresso */
+.progress-container {
+    margin-bottom: 20px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--progress-bg);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Ações do Card */
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-continue {
+    flex: 1;
+    padding: 10px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-continue:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+.btn-details {
+    padding: 10px 16px;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.btn-details:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Seção de Estatísticas */
+.stats-section {
+    margin-bottom: 40px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-card .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.stat-card .stat-label {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .dashboard-header .container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .welcome-message {
+        padding: 20px;
+    }
+    
+    .welcome-message h2 {
+        font-size: 1.3rem;
+    }
+    
+    .card-actions {
+        flex-direction: column;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-card {
+        padding: 20px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+        padding: 20px;
+    }
+}
